@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calgary Road Risk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside id="panel">
+    <header>
+      <h1>Calgary Road Risk</h1>
+      <p class="sub">Winter collision risk from City of Calgary incident history, live incidents, weather and terrain. Prototype.</p>
+    </header>
+
+    <section id="status" class="card status">Loading data…</section>
+
+    <section class="card">
+      <h2>Conditions</h2>
+      <label class="field">Scenario
+        <select id="scenario">
+          <option value="live">Live forecast</option>
+          <option value="snow">Heavy snow (demo)</option>
+          <option value="freezing">Freezing rain (demo)</option>
+          <option value="clear">Clear and dry (demo)</option>
+        </select>
+      </label>
+      <div id="weather" class="weather"></div>
+    </section>
+
+    <section class="card">
+      <h2>Layers</h2>
+      <label class="check"><input type="checkbox" id="lyr-hot" checked> Risk hotspots</label>
+      <label class="check"><input type="checkbox" id="lyr-live" checked> Live incidents</label>
+      <label class="check"><input type="checkbox" id="lyr-cam"> Traffic cameras</label>
+    </section>
+
+    <section class="card">
+      <h2>Priority list</h2>
+      <p class="hint">Where to plow and sand first. Click a row to zoom to it.</p>
+      <ol id="priority" class="priority"></ol>
+    </section>
+
+    <footer class="attr">
+      Contains information licensed under the
+      <a href="https://data.calgary.ca/stories/s/Open-Calgary-Terms-of-Use/u45n-7awa" target="_blank" rel="noopener">Open Government Licence – City of Calgary</a>.
+      Weather: <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0).
+      Terrain: Mapzen Terrain Tiles (AWS Open Data).
+      Not endorsed by the City of Calgary. Decision support only.
+    </footer>
+  </aside>
+
+  <main id="map" aria-label="Map of Calgary road risk"></main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
